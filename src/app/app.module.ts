@@ -15,6 +15,7 @@ import { SidebarComponent } from './component/dashboard/sidebar/sidebar.componen
 import { AddDoctorComponent } from './component/dashboard/doctor/add-doctor/add-doctor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MobileFormatPipe } from './shared/pipes/mobile-format.pipe';
+import { DeleteDoctorComponent } from './component/dashboard/doctor/delete-doctor/delete-doctor.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MobileFormatPipe } from './shared/pipes/mobile-format.pipe';
     PatientComponent,
     SidebarComponent,
     AddDoctorComponent,
-    MobileFormatPipe
+    MobileFormatPipe,
+    DeleteDoctorComponent
   ],
   imports: [
     BrowserModule,

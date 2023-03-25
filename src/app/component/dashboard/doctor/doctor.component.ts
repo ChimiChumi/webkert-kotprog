@@ -1,3 +1,4 @@
+import { DeleteDoctorComponent } from './delete-doctor/delete-doctor.component';
 import { DataService } from './../../../shared/service/data.service';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -49,7 +50,7 @@ export class DoctorComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       if(data) {
         this.dataApi.addDoctor(data);
-        this.openSnackBar("Registration of doctor is successful.", "OK");
+        this.openSnackBar("Doctor registered successfully.", "OK");
       }
     })
   }
@@ -73,6 +74,25 @@ export class DoctorComponent implements OnInit {
       if(data) {
         this.dataApi.updateDoctor(data);
         this.openSnackBar("Doctor updated successfully.", "OK");
+      }
+    })
+  }
+
+  deleteDoctor(row : any){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      title: 'Delete doctor',
+      doctorName : row.name
+    }
+
+    const dialogRef = this.dialog.open(DeleteDoctorComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      if(data) {
+        this.dataApi.deleteDoctor(row.id);
+        this.openSnackBar("Doctor deleted successfully.", "OK");
       }
     })
   }

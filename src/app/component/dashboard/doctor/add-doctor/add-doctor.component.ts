@@ -62,7 +62,4 @@ export class AddDoctorComponent implements OnInit {
   registerDoctor(){
     this.dialogRef.close(this.form.value);
   }
-
-
-
 }
