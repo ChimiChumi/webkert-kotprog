@@ -18,6 +18,7 @@ export class AddDoctorComponent implements OnInit {
   department !: string;
   birthdate !: Date;
   qualification !: string;
+  id !: string;
 
   departments : string[] = ['Anesthesiology', 'Cardiac surgery', 'Cardiology', 'Casualty department', 'Clinical pathology', 'Emergency medicine', 'Gastroenterology', 'General surgery', 'Geriatrics', 'Gynaecology', 'Hematology', 'Infectious diseases', 'Intensive care', 'Internal medicine', 'Neonatology', 'Nephrology', 'Neurology', 'Neurosurgery', 'Nuclear medicine', 'Oncology', 'Ophthalmology', 'Orthopedics', 'Otorhinolaryngology', 'Outpatient department', 'Pathology', 'Pediatrics', 'Physical medicine and rehabilitation', 'Psychiatry', 'Pulmonology', 'Radiology', 'Surgery', 'Urology', 'Vascular surgery'];
 
@@ -27,18 +28,26 @@ export class AddDoctorComponent implements OnInit {
     private dialogRef : MatDialogRef<AddDoctorComponent>
   ) { 
     this.title = data.title;
+    this.id = data.id;
+    this.name = data.name;
+    this.mobile = data.mobile;
+    this.email = data.email;
+    this.gender = data.gender;
+    this.department = data.department;
+    this.birthdate = data.birthdate;
+    this.qualification = data.qualification;
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {  
     this.form = this.fb.group({
-      id : ['', []],
-      name : ['', [Validators.required]],
-      mobile : ['', [Validators.required, Validators.pattern(/^\+?\d+$/),Validators.maxLength(15), Validators.minLength(10)]],
-      email : ['', [Validators.required]],
-      gender : ['', [Validators.required]],
-      department : ['', [Validators.required]],
-      birthdate : ['', [Validators.required]],
-      qualification : ['', [Validators.required]]
+      id : [this.id, []],
+      name : [this.name, [Validators.required]],
+      mobile : [this.mobile, [Validators.required, Validators.pattern(/^\+?\d+$/),Validators.maxLength(15), Validators.minLength(10)]],
+      email : [this.email, [Validators.required]],
+      gender : [this.gender, [Validators.required]],
+      department : [this.department, [Validators.required]],
+      birthdate : [this.birthdate, [Validators.required]],
+      qualification : [this.qualification, [Validators.required]]
     })
   }
 
@@ -51,5 +60,7 @@ export class AddDoctorComponent implements OnInit {
   registerDoctor(){
     this.dialogRef.close(this.form.value);
   }
+
+
 
 }

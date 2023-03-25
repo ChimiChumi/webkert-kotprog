@@ -53,6 +53,28 @@ export class DoctorComponent implements OnInit {
     })
   }
 
+  editDoctor(row : any){
+    if(row.id == null || row.name == null){
+      return;
+    }
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = row;
+    dialogConfig.data.title = "Edit doctor";
+    dialogConfig.data.birthdate = row.birthdate.toDate();
+
+    const dialogRef = this.dialog.open(AddDoctorComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      if(data) {
+        this.dataApi.updateDoctor(data);
+        this.openSnackBar("Doctor updated successfully.", "OK");
+      }
+    })
+  }
+
   // felugró alsó üzenet megjelenítése
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
