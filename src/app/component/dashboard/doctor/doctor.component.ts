@@ -41,7 +41,7 @@ export class DoctorComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = {
-      title: 'Register doctor',
+      title: 'Register Doctor',
       buttonName : 'Register'
     }
 
