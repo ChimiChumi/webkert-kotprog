@@ -65,7 +65,7 @@ export class DoctorComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.data = row;
     dialogConfig.data.title = "Edit doctor";
-    dialogConfig.data.butonName = "Update";
+    dialogConfig.data.buttonName = "Update";
     dialogConfig.data.birthdate = row.birthdate.toDate();
 
     const dialogRef = this.dialog.open(AddDoctorComponent, dialogConfig);
