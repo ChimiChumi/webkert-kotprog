@@ -19,7 +19,7 @@ export class AddDoctorComponent implements OnInit {
   birthdate !: Date;
   qualification !: string;
   id !: string;
-  butonName !: string;
+  buttonName !: string;
 
   departments : string[] = ['Anesthesiology', 'Cardiac surgery', 'Cardiology', 'Casualty department', 'Clinical pathology', 'Emergency medicine', 'Gastroenterology', 'General surgery', 'Geriatrics', 'Gynaecology', 'Hematology', 'Infectious diseases', 'Intensive care', 'Internal medicine', 'Neonatology', 'Nephrology', 'Neurology', 'Neurosurgery', 'Nuclear medicine', 'Oncology', 'Ophthalmology', 'Orthopedics', 'Otorhinolaryngology', 'Outpatient department', 'Pathology', 'Pediatrics', 'Physical medicine and rehabilitation', 'Psychiatry', 'Pulmonology', 'Radiology', 'Surgery', 'Urology', 'Vascular surgery'];
 
@@ -37,7 +37,7 @@ export class AddDoctorComponent implements OnInit {
     this.department = data.department;
     this.birthdate = data.birthdate;
     this.qualification = data.qualification;
-    this.butonName = data.butonName;
+    this.buttonName = data.buttonName;
   }
 
   ngOnInit(): void {  
