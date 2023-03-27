@@ -56,6 +56,7 @@ export class AddPatientComponent implements OnInit {
     })
   }
   
+// doktorok listázása dropdown menüben
 getAllDoctors() {
     this.dataApi.getAllDoctors().subscribe(res => {
       this.allDoctors = res.map((e : any) => {
@@ -74,15 +75,15 @@ getAllDoctors() {
   }
 
   async registerPatient() {
-    this.form.value.doctor_name = this.getDoctorName(this.form.value.id);
+    this.form.value.doctor_name = this.getDoctorName(this.form.value.doctor_id);
+    console.log(this.form.value);
     this.dialogRef.close(this.form.value);
   }
 
   getDoctorName(doctorId : string) {
     for( let i = 0; i < this.allDoctors.length; i++) {
       if(this.allDoctors[i].doctor_id == doctorId) {
-        console.log("TESZT TESZT TESZT");
-        //console.log(this.allDoctors[i].doctor_name);
+        return this.allDoctors[i].doctor_name;
       }
     }
     return "";
