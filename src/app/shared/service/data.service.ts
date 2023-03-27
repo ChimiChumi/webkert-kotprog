@@ -4,11 +4,11 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private afs: AngularFirestore) {}
 
-  
   // doktor hozzáadása
   addDoctor(doctor : any){
     doctor.id = this.afs.createId();
@@ -30,11 +30,15 @@ export class DataService {
     return this.afs.doc("Doctor/" + id).delete();
   }
 
+  // doktorok listázása
+  getDoctorById(id : string) {
+    return this.afs.doc("Doctor/" + id).valueChanges();
+  }
+
    // páciens hozzáadása
    addPatient(patient : any){
     patient.patient_id = this.afs.createId();
     return this.afs.collection("Patient/").add(patient);
   }
-
 
 }

@@ -80,7 +80,7 @@ export class DoctorComponent implements OnInit {
   }
 
   // doktor törlése
-  deleteDoctor(row : any){
+  deleteDoctor(row : any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
@@ -100,12 +100,17 @@ export class DoctorComponent implements OnInit {
     })
   }
 
+  // kiválasztott doktor megnyitása új ablakban
+  viewDoctor(row : any) {
+    window.open('/dashboard/doctor/' + row.id, '_blank');
+  }
+
   // felugró alsó üzenet megjelenítése
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }
 
-  // doktorok listázása
+  // doktorok összegyűjtése dropdown menühöz
   getAllDoctors() {
     this.dataApi.getAllDoctors().subscribe(res=> {
       this.doctorsArr = res.map((e:any) => {
@@ -121,7 +126,7 @@ export class DoctorComponent implements OnInit {
   }
 
   
-  // beépített paginator filter
+  // beimportált paginator filter
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

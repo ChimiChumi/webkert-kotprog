@@ -1,3 +1,4 @@
+import { ViewDoctorComponent } from './component/dashboard/doctor/view-doctor/view-doctor.component';
 import { DoctorComponent } from './component/dashboard/doctor/doctor.component';
 import { PatientComponent } from './component/dashboard/patient/patient.component';
 import { NgModule, Component } from '@angular/core';
@@ -7,7 +8,8 @@ const routes: Routes = [
   {path: 'dashboard', children: [
     {path: '', redirectTo: 'patient', pathMatch: 'full'},
     {path: 'patient', component: PatientComponent},
-    {path: 'doctor', component: DoctorComponent}
+    {path: 'doctor', component: DoctorComponent},
+    {path: 'doctor/:id', component: ViewDoctorComponent} 
   ]}
 ];
 
