@@ -74,14 +74,15 @@ getAllDoctors() {
   }
 
   async registerPatient() {
-    this.form.value.doctor_name = await this.getDoctorName(this.form.value.id);
+    this.form.value.doctor_name = this.getDoctorName(this.form.value.id);
     this.dialogRef.close(this.form.value);
   }
 
   getDoctorName(doctorId : string) {
     for( let i = 0; i < this.allDoctors.length; i++) {
       if(this.allDoctors[i].doctor_id == doctorId) {
-        console.log(this.allDoctors[i].doctor_name);
+        console.log("TESZT TESZT TESZT");
+        //console.log(this.allDoctors[i].doctor_name);
       }
     }
     return "";
