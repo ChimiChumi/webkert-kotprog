@@ -76,7 +76,6 @@ getAllDoctors() {
 
   async registerPatient() {
     this.form.value.doctor_name = this.getDoctorName(this.form.value.doctor_id);
-    console.log(this.form.value);
     this.dialogRef.close(this.form.value);
   }
 
