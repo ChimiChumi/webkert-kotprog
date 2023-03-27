@@ -74,11 +74,13 @@ getAllDoctors() {
     this.dialogRef.close();
   }
 
+  // regisztrálás és doktor id átadása a névlekérő függvénynek
   async registerPatient() {
     this.form.value.doctor_name = this.getDoctorName(this.form.value.doctor_id);
     this.dialogRef.close(this.form.value);
   }
 
+  // a kapott ID alapján megkeresi a doktor nevét, ha nincs, üres string-el tér vissza
   getDoctorName(doctorId : string) {
     for( let i = 0; i < this.allDoctors.length; i++) {
       if(this.allDoctors[i].doctor_id == doctorId) {

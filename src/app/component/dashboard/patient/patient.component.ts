@@ -21,7 +21,7 @@ export class PatientComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  //páciens hozzáadása
+  // páciens hozzáadása
   addPatient() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -33,6 +33,7 @@ export class PatientComponent implements OnInit {
 
     const dialogRef = this.dialog.open(AddPatientComponent, dialogConfig);
 
+    // sikeres adatátvitel esetén üzenetet kapunk és a service-nek átpasszoljuk ami feltölti Firebase-re  
     dialogRef.afterClosed().subscribe(data => {
       if(data) {
         this.dataApi.addPatient(data);

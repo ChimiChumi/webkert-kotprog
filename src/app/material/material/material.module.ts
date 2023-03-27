@@ -19,6 +19,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
 
+
+// projekt során használt összes angular material komponens és modul
+
 @NgModule({
   declarations: [],
   imports: [ 

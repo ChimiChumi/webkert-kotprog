@@ -4,6 +4,9 @@ import { startWith } from 'rxjs';
 @Pipe({
   name: 'mobileFormat'
 })
+
+// custom pipe osztály. Feladata, hogy a telefonszámokat jobban átlátható módon jelenítse meg. Pár esetre ellenőriztem
+
 export class MobileFormatPipe implements PipeTransform {
   transform(value: string): string {
 

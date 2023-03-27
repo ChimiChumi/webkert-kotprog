@@ -35,7 +35,7 @@ export class DoctorComponent implements OnInit {
 
   
 
-  // doktor regisztrálása 
+  // doktor hozzáadása 
   addDoctor(){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -55,6 +55,7 @@ export class DoctorComponent implements OnInit {
     })
   }
 
+  // doktor módosítása
   editDoctor(row : any){
     if(row.id == null || row.name == null){
       return;
@@ -78,6 +79,7 @@ export class DoctorComponent implements OnInit {
     })
   }
 
+  // doktor törlése
   deleteDoctor(row : any){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
@@ -89,6 +91,7 @@ export class DoctorComponent implements OnInit {
 
     const dialogRef = this.dialog.open(DeleteDoctorComponent, dialogConfig);
 
+    // törlő service meghívása
     dialogRef.afterClosed().subscribe(data => {
       if(data) {
         this.dataApi.deleteDoctor(row.id);
@@ -111,7 +114,6 @@ export class DoctorComponent implements OnInit {
         return data;
       })
       
-    console.log(this.doctorsArr);
     this.dataSource = new MatTableDataSource(this.doctorsArr);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
