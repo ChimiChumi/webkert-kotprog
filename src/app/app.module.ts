@@ -18,6 +18,7 @@ import { MobileFormatPipe } from './shared/pipes/mobile-format.pipe';
 import { DeleteDoctorComponent } from './component/dashboard/doctor/delete-doctor/delete-doctor.component';
 import { AddPatientComponent } from './component/dashboard/patient/add-patient/add-patient.component';
 import { ViewDoctorComponent } from './component/dashboard/doctor/view-doctor/view-doctor.component';
+import { ViewPatientComponent } from './component/dashboard/patient/view-patient/view-patient.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ViewDoctorComponent } from './component/dashboard/doctor/view-doctor/vi
     MobileFormatPipe,
     DeleteDoctorComponent,
     AddPatientComponent,
-    ViewDoctorComponent
+    ViewDoctorComponent,
+    ViewPatientComponent,
   ],
   imports: [
     BrowserModule,

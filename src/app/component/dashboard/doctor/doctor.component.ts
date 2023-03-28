@@ -34,7 +34,6 @@ export class DoctorComponent implements OnInit {
   }
 
   
-
   // doktor hozzáadása 
   addDoctor(){
     const dialogConfig = new MatDialogConfig();

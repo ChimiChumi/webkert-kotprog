@@ -1,9 +1,14 @@
-import { AddPatientComponent } from './add-patient/add-patient.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Doctor } from 'src/app/shared/model/doctor';
+import { Patient } from 'src/app/shared/model/patient';
 import { DataService } from 'src/app/shared/service/data.service';
-import { AddDoctorComponent } from '../doctor/add-doctor/add-doctor.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
+import { DeletePatientComponent } from './delete-patient/delete-patient.component';
 
 @Component({
   selector: 'app-patient',
@@ -12,39 +17,87 @@ import { AddDoctorComponent } from '../doctor/add-doctor/add-doctor.component';
 })
 export class PatientComponent implements OnInit {
 
+  allPatients : Patient[] = [];
+  allDoctors : Doctor[] = [];
+  displayedColumns: string[] = ['name', 'gender', 'mobile', 'doctor','action'];
+  dataSource!: MatTableDataSource<Patient>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   constructor(
-    public dialog: MatDialog,
+    public dialog : MatDialog,
     private dataApi : DataService,
     private _snackBar : MatSnackBar
   ) { }
 
   ngOnInit(): void {
+    this.getAllPatients();
+    this.getAllDoctors();
   }
 
-  // páciens hozzáadása
   addPatient() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = {
-      title: 'Register Patient',
+      title : 'Register Patient',
       buttonName : 'Register'
     }
 
     const dialogRef = this.dialog.open(AddPatientComponent, dialogConfig);
 
-    // sikeres adatátvitel esetén üzenetet kapunk és a service-nek átpasszoljuk ami feltölti Firebase-re  
     dialogRef.afterClosed().subscribe(data => {
       if(data) {
         this.dataApi.addPatient(data);
-        this.openSnackBar("Patient registered successfully.", "OK");
+        this.openSnackBar("Registration of patient is successful.", "OK")
       }
     })
   }
 
-   // felugró alsó üzenet megjelenítése
-   openSnackBar(message: string, action: string) {
+  getAllPatients() {
+    this.dataApi.getAllPatients().subscribe(res => {
+      this.allPatients = res.map((e:any) => {
+        const data = e.payload.doc.data();
+        data.patient_id = e.payload.doc.id;
+        return data;
+      })
+
+      this.dataSource = new MatTableDataSource(this.allPatients);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
+  }
+
+  getAllDoctors() {
+    this.dataApi.getAllDoctors().subscribe(res => {
+      this.allDoctors = res.map((e : any) => {
+        const data = e.payload.doc.data();
+        data.id = e.payload.doc.id;
+        return data;
+      })
+    })
+  }
+
+  viewPatient(row : any) {
+    window.open('/dashboard/patient/' + row.patient_id,'_blank');
+    console.log(row.patient_name);
+  }
+
+  editPatient(row : any){}
+
+  deletePatient(row : any){}
+
+  openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 }

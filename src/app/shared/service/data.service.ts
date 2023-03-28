@@ -30,15 +30,23 @@ export class DataService {
     return this.afs.doc("Doctor/" + id).delete();
   }
 
-  // doktorok listázása
+  // doktorok lekérése ID szerint
   getDoctorById(id : string) {
     return this.afs.doc("Doctor/" + id).valueChanges();
   }
 
    // páciens hozzáadása
-   addPatient(patient : any){
+   addPatient(patient : any) {
     patient.patient_id = this.afs.createId();
     return this.afs.collection("Patient/").add(patient);
   }
 
+  // páciensek lekérdezése
+  getAllPatients() {
+    return this.afs.collection("Patient/").snapshotChanges();
+  }
+
+  getPatientById(id : any) {
+    return this.afs.doc("Patient/"+id).valueChanges();
+  }
 }

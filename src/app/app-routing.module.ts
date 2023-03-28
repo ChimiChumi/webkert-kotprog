@@ -1,3 +1,4 @@
+import { ViewPatientComponent } from './component/dashboard/patient/view-patient/view-patient.component';
 import { ViewDoctorComponent } from './component/dashboard/doctor/view-doctor/view-doctor.component';
 import { DoctorComponent } from './component/dashboard/doctor/doctor.component';
 import { PatientComponent } from './component/dashboard/patient/patient.component';
@@ -9,7 +10,8 @@ const routes: Routes = [
     {path: '', redirectTo: 'patient', pathMatch: 'full'},
     {path: 'patient', component: PatientComponent},
     {path: 'doctor', component: DoctorComponent},
-    {path: 'doctor/:id', component: ViewDoctorComponent} 
+    {path: 'doctor/:id', component: ViewDoctorComponent},
+    {path: 'patient/:id', component: ViewPatientComponent},
   ]}
 ];
 
