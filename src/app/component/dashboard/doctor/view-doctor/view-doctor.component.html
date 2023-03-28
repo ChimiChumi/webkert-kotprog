@@ -2,27 +2,29 @@
 <ng-container *ngIf="doctorObj">
     <h2 style="font-weight: 700;" class="m-3" color="primary">Doctor Information</h2>
     <mat-card class="m-3">
-        <mat-card-title>
+        <mat-card-title style="margin: 0.5vw">
             {{doctorObj.name}}
         </mat-card-title>
 
+        <br>
+
         <mat-card-subtitle>
-            {{doctorObj.qualification}}
+            Qualification : <b>{{doctorObj.qualification}}</b> 
         </mat-card-subtitle>
         <mat-divider></mat-divider>
 
-        <div class="row pt-3" style="padding-left: 2vw">
-            <div class="col-md-6">
+        <div class="row pt-3" style="padding-left: 1vw;">
+            <div class="col-md-4">
                 <mat-card-content style="font-size: larger">
-                    <span style="font-size: medium"> Email : </span> {{doctorObj.email}} <br>
-                    <span style="font-size: medium"> Mobile : </span> {{doctorObj.mobile | mobileFormat}} <br>
+                    <span> Email : </span> {{doctorObj.email}} <br>
+                    <span> Mobile : </span> {{doctorObj.mobile | mobileFormat}} <br>
                 </mat-card-content>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <mat-card-content style="font-size: larger">
-                    <span style="font-size: medium"> Gender : </span> {{doctorObj.gender}} <br>
-                    <span style="font-size: medium"> Department : </span> {{doctorObj.department}}
+                    <span> Gender : </span> {{doctorObj.gender}} <br>
+                    <span> Department : </span> {{doctorObj.department}}
                 </mat-card-content>
             </div>
         </div>

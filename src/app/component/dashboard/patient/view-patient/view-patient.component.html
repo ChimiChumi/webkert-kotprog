@@ -1,22 +1,27 @@
+<!-- ha létezik a doktor, akkor megjelenítjük az adatait -->
 <ng-container *ngIf="patientObj">
-  <h2 style="font-weight: 700;" class="mt-3" color="primary"> Patient Information </h2>
+  <h2 style="font-weight: 700;" class="m-3" color="primary"> Patient Information </h2>
   <mat-card class="m-3">
-
-    <mat-card-title class="pb-2">
-      Patient Name : <b>{{patientObj.patient_name}}</b>
+    <mat-card-title style="margin: 0.5vw">
+      {{patientObj.patient_name}}
     </mat-card-title>
+
+    <br>
+
+    <mat-card-subtitle>
+      Assigned Doctor : <b> {{patientObj.doctor_name}} </b>
+    </mat-card-subtitle>
     <mat-divider></mat-divider>
 
-    <div class="row pt-3">
+    <div class="row pt-3" style="padding-left: 1vw">
       <div class="col-md-6">
-        <mat-card-content>
-          <span> Doctor Name : </span> {{patientObj.doctor_name}} <br>
-          <span> Mobile : </span> {{patientObj.mobile}} <br>
+        <mat-card-content style="font-size: larger">
+          <span > Mobile : </span> {{patientObj.mobile | mobileFormat}} <br>
           <span> Prescription : </span> {{patientObj.prescription}}
         </mat-card-content>
       </div>
       <div class="col-md-6">
-        <mat-card-content>
+        <mat-card-content style="font-size: larger">
           <span> Gender : </span> {{patientObj.gender}} <br>
           <span> Adminssion Date : </span> {{patientObj.admission_date | date}}
         </mat-card-content>
