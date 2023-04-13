@@ -31,8 +31,8 @@ export class AddPatientComponent implements OnInit {
     private dataApi: DataService
   ) {
     this.title = data.title;
-    this.patient_id = data.id;
-    this.patient_name = data.name;
+    this.patient_id = data.patient_id;
+    this.patient_name = data.patient_name;
     this.mobile = data.mobile;
     this.gender = data.gender;
     this.admission_date = data.admission_date;

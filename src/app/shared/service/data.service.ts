@@ -46,7 +46,18 @@ export class DataService {
     return this.afs.collection("Patient/").snapshotChanges();
   }
 
+  // páciens módosítása
+  updatePatient(patient: any) {
+    return this.afs.doc("Patient/" + patient.patient_id).update(patient);
+  }
+
+  // páciens törlése
+  deletePatient(id: string) {
+    return this.afs.doc("Patient/" + id).delete();
+  }
+
+  // páciens lekérése ID szerint
   getPatientById(id : any) {
-    return this.afs.doc("Patient/"+id).valueChanges();
+    return this.afs.doc("Patient/" + id).valueChanges();
   }
 }

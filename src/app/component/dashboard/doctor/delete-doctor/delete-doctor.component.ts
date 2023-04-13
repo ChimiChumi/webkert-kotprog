@@ -7,6 +7,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./delete-doctor.component.scss']
 })
 export class DeleteDoctorComponent implements OnInit {
+  
   doctorName !: string;
   title !: string;
 
