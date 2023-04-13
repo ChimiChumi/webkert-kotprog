@@ -19,6 +19,7 @@ import { DeleteDoctorComponent } from './component/dashboard/doctor/delete-docto
 import { AddPatientComponent } from './component/dashboard/patient/add-patient/add-patient.component';
 import { ViewDoctorComponent } from './component/dashboard/doctor/view-doctor/view-doctor.component';
 import { ViewPatientComponent } from './component/dashboard/patient/view-patient/view-patient.component';
+import { DeletePatientComponent } from './component/dashboard/patient/delete-patient/delete-patient.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ViewPatientComponent } from './component/dashboard/patient/view-patient
     AddDoctorComponent,
     MobileFormatPipe,
     DeleteDoctorComponent,
+    DeletePatientComponent,
     AddPatientComponent,
     ViewDoctorComponent,
     ViewPatientComponent,
