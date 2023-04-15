@@ -16,11 +16,11 @@ export class AuthService {
     this.auth
       .signInWithEmailAndPassword(username, password)
       .then(result => {
-        this.auth.authState.subscribe(user => {
+        this.auth.authState.subscribe(async user => {
           if (user) {
             localStorage.setItem('user', JSON.stringify(user));
-            this.router.navigate(['/dashboard']);
-            console.log(user);
+            await this.router.navigate(['/dashboard']);
+            location.reload();
           }
         })
       })
@@ -29,9 +29,10 @@ export class AuthService {
       })
   }
 
-  logout() {
+  async logout() {
     localStorage.setItem('user', 'null');
-    this.router.navigate(['']);
+    await this.router.navigate(['']);
+    location.reload();
   }
 
   isUserLoggedIn() {
