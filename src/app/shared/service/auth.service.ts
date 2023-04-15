@@ -31,7 +31,7 @@ export class AuthService {
 
   async logout() {
     localStorage.setItem('user', 'null');
-    await this.router.navigate(['']);
+    await this.router.navigate(['/login']);
     location.reload();
   }
 
