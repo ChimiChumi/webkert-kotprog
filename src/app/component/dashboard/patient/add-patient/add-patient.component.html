@@ -3,7 +3,6 @@
 
 <!-- form mezők létrehozása -->
 <mat-dialog-content [formGroup] = "form">
-
     <mat-grid-list cols="2"> 
 
         <mat-grid-tile>
@@ -24,7 +23,7 @@
                             type="text"
                             formControlName="mobile" 
                             required>
-                    <mat-error *ngIf="form.get('mobile')?.invalid || form.get('mobile')?.dirty || form.get('mobile')?.touched"> Enter valid mobile number </mat-error>
+                    <mat-error *ngIf="form.get('mobile')?.invalid || form.get('mobile')?.dirty || form.get('mobile')?.touched"> Enter valid number (digits or +) </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
@@ -69,9 +68,7 @@
                   
             </div>
         </mat-grid-tile>
-
     </mat-grid-list>
-
 </mat-dialog-content>
 
 <div mat-dialog-actions>

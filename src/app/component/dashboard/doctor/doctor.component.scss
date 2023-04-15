@@ -1,19 +1,69 @@
 //TODO: responsive layout (phone - desktop)
 
-.add-doc{
-    color: #3f51b5;
+.add-doc {
+  color: #3f51b5;
 }
 
 .mat-card:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
-table{
-    width: 100%;
-    text-align: center;
+table {
+  width: 100%;
+  text-align: center;
 }
-  
+
 .mat-form-field {
-    font-size: 14px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-header-cell {
+  text-align: center;
+  font-size: larger;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 600px) {
+  .mat-table tbody tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .mat-table tbody tr td {
+    flex-basis: 100%;
+  }
+
+  .mat-header-cell {
+    font-size: 9px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .mat-cell {
+    font-size: 9px;
+  }
+
+  .add-doc mat-icon,
+  .mat-header-cell,
+  .mat-cell {
+    margin-top: 5px;
+    margin-right: 15px;
+  }
+
+  .mat-form-field {
     width: 100%;
+  }
+
+  .mat-paginator {
+    margin-top: 20px;
+  }
+
+  /* Word wrapping for long texts */
+  .mat-cell {
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+  }
 }
