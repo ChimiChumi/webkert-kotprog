@@ -1,13 +1,72 @@
-//TODO: responsive layout (phone - desktop)
-
-.mat-dialog-content {
+.mat-dialog-container {
     width: 65vh;
+    margin: auto;
 }
 
 .mat-grid-list {
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .mat-radio-button {
-    margin-right: 15px ;
+    margin-right: 15px;
+}
+
+.mat-dialog-title {
+    text-align: center;
+}
+
+.mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+}
+
+::ng-deep.mat-dialog-container {
+    width: 65vh;
+    margin: auto;
+}
+
+@media (max-width: 600px) {
+    ::ng-deep.mat-dialog-container {
+        font-size: 10px;
+        border: 2px solid red;
+        padding: 3;
+        height: 70vh;
+        margin: auto;
+        flex-wrap: wrap;
+    }
+
+    .mat-dialog-title {
+        font-size: 12px;
+        padding: 0;
+    }
+
+    .mat-radio-group{
+        font-size: 7px;
+        display: block;
+    }
+
+    .mat-form-field{
+        width: 60%;
+        height: 100%;
+        padding-left: 20%;
+        margin: auto;
+        position: static;
+        top: 50%;
+    }
+
+    .mat-divider {
+        display: none;
+    }
+
+    .mat-dialog-actions {
+        display: block;
+        justify-content: center;
+        position: absolute;
+        top: 75%;
+        left: 33%;
+        margin: auto;
+        transform: scale(0.7);
+      }
 }
