@@ -8,6 +8,20 @@ import { ActivatedRoute } from '@angular/router';
 import { Patient } from 'src/app/shared/model/patient';
 import { DataService } from 'src/app/shared/service/data.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Directive, ElementRef, Input } from '@angular/core';
+
+@Directive({
+  selector: '[appFontWeight]'
+})
+export class FontWeightDirective {
+
+  constructor(private el: ElementRef) { }
+
+  @Input() set appFontWeight(weight: string) {
+    this.el.nativeElement.style.fontWeight = weight;
+  }
+
+}
 
 @Component({
   selector: 'app-view-doctor',
@@ -18,7 +32,7 @@ export class ViewDoctorComponent implements OnInit {
 
   id !: any;
   doctorObj !: any;
-  allPatients: Patient[] = [];
+  @Input() allPatients: Patient[] = [];
 
   displayedColumns: string[] = ['name', 'gender', 'mobile', 'prescription', 'action'];
   dataSource!: MatTableDataSource<Patient>;

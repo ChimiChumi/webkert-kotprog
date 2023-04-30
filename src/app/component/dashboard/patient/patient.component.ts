@@ -9,16 +9,18 @@ import { Patient } from 'src/app/shared/model/patient';
 import { DataService } from 'src/app/shared/service/data.service';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { DeletePatientComponent } from './delete-patient/delete-patient.component';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-patient',
   templateUrl: './patient.component.html',
   styleUrls: ['./patient.component.scss']
 })
+  
 export class PatientComponent implements OnInit {
 
-  allPatients : Patient[] = [];
-  allDoctors : Doctor[] = [];
+  @Input() allPatients : Patient[] = [];
+  @Input() allDoctors : Doctor[] = [];
   displayedColumns: string[] = ['name', 'gender', 'mobile', 'doctor','action'];
   dataSource!: MatTableDataSource<Patient>;
 

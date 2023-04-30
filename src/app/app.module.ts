@@ -17,8 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MobileFormatPipe } from './shared/pipes/mobile-format.pipe';
 import { DeleteDoctorComponent } from './component/dashboard/doctor/delete-doctor/delete-doctor.component';
 import { AddPatientComponent } from './component/dashboard/patient/add-patient/add-patient.component';
-import { ViewDoctorComponent } from './component/dashboard/doctor/view-doctor/view-doctor.component';
-import { ViewPatientComponent } from './component/dashboard/patient/view-patient/view-patient.component';
+import { ViewDoctorComponent, FontWeightDirective } from './component/dashboard/doctor/view-doctor/view-doctor.component';
+import { ViewPatientComponent, UnderlineDirective } from './component/dashboard/patient/view-patient/view-patient.component';
 import { DeletePatientComponent } from './component/dashboard/patient/delete-patient/delete-patient.component';
 import { LoginComponent } from './component/auth/login/login.component';
 
@@ -36,6 +36,8 @@ import { LoginComponent } from './component/auth/login/login.component';
     ViewDoctorComponent,
     ViewPatientComponent,
     LoginComponent,
+    FontWeightDirective,
+    UnderlineDirective
   ],
   imports: [
     BrowserModule,
