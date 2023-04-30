@@ -9,7 +9,7 @@ Belépés az adminisztrációs felülethez:
 ### Itt egy általam készített javítási vázlat, hátha segít átlátni:
 - Fordítási hiba nincs - NINCS
 - Futtatási hiba nincs - NINCS (van egy olyan ami az első refresh (F5) után eltűnik. Szerintem nem a kliens oldalról jelenik meg.)
-- Firebase Hosting URL - OK
+- Firebase Hosting URL - OK (https://hospital-management-e25d5.web.app)
 - Adatmodell definiálása - 2db typescript Interface (patient, doctor)
 - Alkalmazás felbontása megfelelő számú komponensre - OK
 - Reszponzív, mobile-first felület - telefonon nem
