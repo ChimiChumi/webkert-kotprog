@@ -12,7 +12,7 @@ Belépés az adminisztrációs felülethez:
 - Firebase Hosting URL - OK (https://hospital-management-e25d5.web.app)
 - Adatmodell definiálása - 2db typescript Interface (patient, doctor)
 - Alkalmazás felbontása megfelelő számú komponensre - OK
-- Reszponzív, mobile-first felület - telefonon nem
+- Reszponzív, mobile-first felület - elfogadható
 - Legalább 2 különböző attribútum direktíva használata - OK (FontWeightDirective, UnderlineDirective)
 - Legalább 2 különböző strukturális direktíva használata - OK (*ngIf, *ngFor)
 - Adatátadás szülő és gyermek komponensek között - pár @Input
